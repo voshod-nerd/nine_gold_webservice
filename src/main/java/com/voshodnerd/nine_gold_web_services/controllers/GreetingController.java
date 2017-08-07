@@ -3,20 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.nine_gold_web_services.controller;
+package com.voshodnerd.nine_gold_web_services.controllers;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 /**
  *
  * @author ПК
  */
 @Controller
 public class GreetingController {
-    @RequestMapping("/greeting")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+
+    @RequestMapping("/home")
+    public String home(Model model) {
+        String name = "Hi";
         model.addAttribute("name", name);
         return "greeting";
     }
+
 }
