@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author ПК
  */
 @Controller
-public class GreetingController {
+public class IndexController {
 
     @RequestMapping("/home")
     public String home(Model model) {
