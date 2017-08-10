@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.voshodnerd.nine_gold_web_services.repository;
-import com.voshodnerd.nine_gold_web_services.model.Typeusers;
+import com.voshodnerd.nine_gold_web_services.model.UserRoles;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,7 +12,7 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Талалаев
  */
-public interface TypeuserRepository extends CrudRepository<Typeusers, Long> {
-    
+public interface TypeuserRepository extends CrudRepository<UserRoles, Long> {
+    UserRoles findByName(String role);
 }
 

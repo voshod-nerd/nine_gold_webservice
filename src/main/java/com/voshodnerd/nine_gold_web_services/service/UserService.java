@@ -5,13 +5,13 @@
  */
 package com.voshodnerd.nine_gold_web_services.service;
 
-import com.voshodnerd.nine_gold_web_services.model.Users;
+import com.voshodnerd.nine_gold_web_services.model.User;
 
 /**
  *
  * @author Талалаев
  */
 public interface UserService {
-    public Users findUserByEmail(String email);
-	public void saveUser(Users user);
+    public User findUserByEmail(String email);
+	public void saveUser(User user);
 }

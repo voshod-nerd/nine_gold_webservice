@@ -5,10 +5,14 @@
  */
 package com.voshodnerd.nine_gold_web_services.impl;
 
-import com.voshodnerd.nine_gold_web_services.model.Users;
+import com.voshodnerd.nine_gold_web_services.model.UserRoles;
+
+import com.voshodnerd.nine_gold_web_services.model.User;
 import com.voshodnerd.nine_gold_web_services.repository.TypeuserRepository;
 import com.voshodnerd.nine_gold_web_services.repository.UserRepository;
 import com.voshodnerd.nine_gold_web_services.service.UserService;
+import java.util.Arrays;
+import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,7 +22,7 @@ import org.springframework.stereotype.Service;
  * @author Талалаев
  */
 @Service("userService")
-public class UserReposoryImpl implements UserService{
+public class UserReposoryImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -28,17 +32,17 @@ public class UserReposoryImpl implements UserService{
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public Users findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
     @Override
-    public void saveUser(Users user) {
-       user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-       
-        Typeuser userRole = roleRepository.findByName("ADMIN");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-		userRepository.save(user);
+    public void saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+        //UserRoles userRole = roleRepository.findByName("ADMIN");
+        //user.setUserRolesCollection(userRole);
+        userRepository.save(user);
     }
 
 }

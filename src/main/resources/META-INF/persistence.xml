@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.voshodnerd.nine_gold_web_services.model.Users</class>
     <class>com.voshodnerd.nine_gold_web_services.model.Typeusers</class>
+    <class>com.voshodnerd.nine_gold_web_services.model.User</class>
+    <class>com.voshodnerd.nine_gold_web_services.model.UserRoles</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/window"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
