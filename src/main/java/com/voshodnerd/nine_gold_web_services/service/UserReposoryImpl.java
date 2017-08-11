@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.voshodnerd.nine_gold_web_services.impl;
+package com.voshodnerd.nine_gold_web_services.service;
 
-import com.voshodnerd.nine_gold_web_services.model.UserRoles;
+import com.voshodnerd.nine_gold_web_services.model.Role;
 
 import com.voshodnerd.nine_gold_web_services.model.User;
-import com.voshodnerd.nine_gold_web_services.repository.TypeuserRepository;
 import com.voshodnerd.nine_gold_web_services.repository.UserRepository;
 import com.voshodnerd.nine_gold_web_services.service.UserService;
 import java.util.Arrays;
@@ -16,6 +15,7 @@ import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.voshodnerd.nine_gold_web_services.repository.RoleRepository;
 
 /**
  *
@@ -27,7 +27,7 @@ public class UserReposoryImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private TypeuserRepository roleRepository;
+    private RoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -40,7 +40,7 @@ public class UserReposoryImpl implements UserService {
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
-        //UserRoles userRole = roleRepository.findByName("ADMIN");
+        Role userRole = roleRepository.findByRole("ADMIN");
         //user.setUserRolesCollection(userRole);
         userRepository.save(user);
     }
