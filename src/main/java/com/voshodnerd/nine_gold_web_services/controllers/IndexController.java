@@ -51,8 +51,27 @@ public class IndexController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
+        System.out.println("1 step");
+        System.out.println(user.getEmail());
+        System.out.println(user.getUsername());
+        System.out.println(user.getLastName());
+        System.out.println(user.getPassword());
+       
+        user.setActive(Boolean.TRUE);
+        user.setUserId(Integer.SIZE);
+         System.out.println(user.getUserId());
+        System.out.println(user.getActive());
+        
+        
+
         ModelAndView modelAndView = new ModelAndView();
-        User userExists = userService.findUserByEmail(user.getUsername());
+        User userExists=null;
+        try {
+        userExists = userService.findUserByEmail(user.getEmail());
+        } catch (Exception error) {
+            System.out.println(error.fillInStackTrace());
+        } 
+        System.out.println("2 step");
         if (userExists != null) {
             bindingResult
                     .rejectValue("email", "error.user",

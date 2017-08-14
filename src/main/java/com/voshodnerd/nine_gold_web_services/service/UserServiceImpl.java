@@ -22,7 +22,7 @@ import com.voshodnerd.nine_gold_web_services.repository.RoleRepository;
  * @author Талалаев
  */
 @Service("userService")
-public class UserReposoryImpl implements UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
