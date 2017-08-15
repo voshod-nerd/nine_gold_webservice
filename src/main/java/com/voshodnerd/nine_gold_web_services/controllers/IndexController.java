@@ -26,7 +26,7 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/home")
+    @RequestMapping(value= {"/","/home"}, method = RequestMethod.GET)
     public String home(Model model) {
         String name = "Hi";
         model.addAttribute("name", name);
@@ -53,13 +53,13 @@ public class IndexController {
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         System.out.println("1 step");
         System.out.println(user.getEmail());
-        System.out.println(user.getUsername());
+        System.out.println(user.getName());
         System.out.println(user.getLastName());
         System.out.println(user.getPassword());
        
-        user.setActive(Boolean.TRUE);
-        user.setUserId(Integer.SIZE);
-         System.out.println(user.getUserId());
+        //user.setActive(Boolean.TRUE);
+        //user.setUserId(Integer.SIZE);
+        System.out.println(user.getId());
         System.out.println(user.getActive());
         
         
